@@ -8,7 +8,7 @@
 
 ### git clone
 
-### cd parcial1
+### cd parcial-front3
 
 ### npm install 
 
