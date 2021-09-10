@@ -41,12 +41,6 @@ class Principal extends React.Component {
                 anterior: "B",
                 elecciones: [...this.state.elecciones,"B"]
             }))
-        } else if(this.state.anterior === 'B') {
-            this.setState((state, props)=>({
-                iterador: state.iterador + 2,
-                anterior: "B",
-                elecciones: [...this.state.elecciones,"B"]
-            }))
         } else {
             this.setState((state, props)=>({
                 iterador: state.iterador + 2,
