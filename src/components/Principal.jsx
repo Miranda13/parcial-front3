@@ -2,6 +2,7 @@ import data from "./data";
 import React from "react";
 import Botones from "./Botones";
 import Historial from "./Historial";
+import Swal from 'sweetalert2'
 
 class Principal extends React.Component {
     constructor(props) {
@@ -16,39 +17,47 @@ class Principal extends React.Component {
     }
 
     chooseA() {
-        if (this.state.anterior === 'A') {
-            this.setState((state, props)=>(
-                {
-                iterador: state.iterador + 2,
-                anterior: "A",
-                elecciones: [...this.state.elecciones,"A"]
-            }));
-        } else {
-            this.setState((state, props)=>(
-                {
-                iterador: state.iterador + 1,
-                anterior: "A",
-                elecciones: [...this.state.elecciones,"A"]
-            }));
+        if (this.state.iterador >=7) {
+            Swal.fire('Fin de la historia');
         }
-        
+        else {
+            console.log(this.state.iterador)
+            if (this.state.anterior === 'A') {
+                this.setState((state, props)=>(
+                    {
+                    iterador: state.iterador + 2,
+                    anterior: "A",
+                    elecciones: [...this.state.elecciones,"A"]
+                }));
+            } else {
+                this.setState((state, props)=>(
+                    {
+                    iterador: state.iterador + 1,
+                    anterior: "A",
+                    elecciones: [...this.state.elecciones,"A"]
+                }));
+            }
+        }    
     }
 
     chooseB() {
-        if (this.state.anterior === 'A') {
-            this.setState((state, props)=>({
-                iterador: state.iterador + 3,
-                anterior: "B",
-                elecciones: [...this.state.elecciones,"B"]
-            }))
+        if (this.state.iterador >=7) {
+            Swal.fire('Fin de la historia');
         } else {
-            this.setState((state, props)=>({
-                iterador: state.iterador + 2,
-                anterior: "B",
-                elecciones: [...this.state.elecciones,"B"]
-            }))
-        }
-        
+            if (this.state.anterior === 'A') {
+                this.setState((state, props)=>({
+                    iterador: state.iterador + 3,
+                    anterior: "B",
+                    elecciones: [...this.state.elecciones,"B"]
+                }))
+            } else {
+                this.setState((state, props)=>({
+                    iterador: state.iterador + 2,
+                    anterior: "B",
+                    elecciones: [...this.state.elecciones,"B"]
+                }))
+            }
+        }  
     }
     
     render() {
